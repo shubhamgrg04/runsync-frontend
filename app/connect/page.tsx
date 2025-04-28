@@ -1,4 +1,4 @@
-import ConnectWizard from "@/components/ConnectWizard";
+import ConnectWizard from "../../components/ConnectWizard";
 
 export default function Connect() {
   return (
