@@ -45,7 +45,7 @@ export default function LandingPage() {
             <div className="flex justify-center mb-12 sm:mb-20">
               <Link href="/dashboard">
                 <button className="flex items-center space-x-2 hero-cta-button">
-                  <span>Sync Now</span>
+                  <span>Start Syncing</span>
                   <ArrowRightIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
               </Link>
