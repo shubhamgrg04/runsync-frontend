@@ -5,8 +5,6 @@
 
 # RunSync
 
-## Overview
-
 RunSync is a powerful open-source platform that seamlessly synchronizes your running activities across multiple fitness platforms. Whether you use Strava, Garmin, Nike Run Club, or Adidas Running, RunSync ensures your running data stays consistent everywhere.
 
 ### Key Features
