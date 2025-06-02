@@ -1,9 +1,9 @@
-# RunSync
-
-<div align="center">
+ 
+<div>
   <img src="/public/logo.svg" alt="RunSync Logo" width="100" height="100" />
-  <h3>Sync Your Runs. Anywhere. Effortlessly.</h3>
 </div>
+
+# RunSync
 
 ## Overview
 
