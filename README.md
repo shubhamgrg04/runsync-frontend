@@ -1,7 +1,7 @@
 # RunSync
 
-<div>
-  <img src="/public/logo.svg" alt="RunSync Logo" width="200" height="200" />
+<div align="center">
+  <img src="/public/logo.svg" alt="RunSync Logo" width="100" height="100" />
   <h3>Sync Your Runs. Anywhere. Effortlessly.</h3>
 </div>
 
