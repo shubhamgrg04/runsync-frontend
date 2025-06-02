@@ -23,7 +23,7 @@ export default function Footer() {
           {/* Social & Copyright */}
           <div className="flex items-center gap-4">
             <a
-              href="https://github.com/yourusername/runsync"
+              href="https://github.com/shubhamgrg04/runsync"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-gray-900 transition-colors"
