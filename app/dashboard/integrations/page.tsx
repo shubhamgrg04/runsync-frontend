@@ -1,10 +1,10 @@
 "use client";
 
-import AppLayout from "../../components/AppLayout";
+import Image from "next/image";
 
 export default function IntegrationsPage() {
   return (
-    <AppLayout>
+    <>
       <div className="max-w-7xl mx-auto">
         <div className="md:flex md:items-center md:justify-between">
           <div className="min-w-0 flex-1">
@@ -31,7 +31,13 @@ export default function IntegrationsPage() {
             {/* Strava */}
             <div className="relative flex items-center space-x-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-slate-800 px-6 py-5 shadow-sm hover:border-gray-400 dark:hover:border-gray-600">
               <div className="flex-shrink-0">
-                <img src="/strava-logo.svg" alt="Strava" className="h-8 w-8" />
+                <Image
+                  src="/strava-logo.svg"
+                  alt="Strava"
+                  className="h-8 w-8"
+                  width={32}
+                  height={32}
+                />
               </div>
               <div className="min-w-0 flex-1">
                 <div className="focus:outline-none">
@@ -48,7 +54,13 @@ export default function IntegrationsPage() {
             {/* Fitbit */}
             <div className="relative flex items-center space-x-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-slate-800 px-6 py-5 shadow-sm hover:border-gray-400 dark:hover:border-gray-600">
               <div className="flex-shrink-0">
-                <img src="/fitbit-logo.svg" alt="Fitbit" className="h-8 w-8" />
+                <Image
+                  src="/fitbit-logo.svg"
+                  alt="Fitbit"
+                  className="h-8 w-8"
+                  width={32}
+                  height={32}
+                />
               </div>
               <div className="min-w-0 flex-1">
                 <div className="focus:outline-none">
@@ -64,6 +76,6 @@ export default function IntegrationsPage() {
           </div>
         </div>
       </div>
-    </AppLayout>
+    </>
   );
 }

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import type { LoginResponse } from "../app/types/auth";
 import { Menu, Transition } from "@headlessui/react";
 import { Fragment } from "react";
@@ -16,8 +16,11 @@ interface MenuItemProps {
 
 export default function Header() {
   const router = useRouter();
+  const pathname = usePathname();
   const [user, setUser] = useState<LoginResponse["user"] | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const isLandingPage = pathname === "/";
 
   useEffect(() => {
     // Initial user data load
@@ -52,8 +55,16 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header
+      className={`w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm sticky top-0 z-50 ${
+        !isLandingPage ? "px-4" : ""
+      }`}
+    >
+      <div
+        className={`${
+          isLandingPage ? "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" : "w-full"
+        }`}
+      >
         <div className="flex justify-between items-center py-4">
           <Link href="/" className="flex items-center group">
             <Image
@@ -69,21 +80,23 @@ export default function Header() {
             </span>
           </Link>
           <nav className="hidden md:flex items-center space-x-8">
-            <Link
-              href="https://github.com/shubhamgrg04/runsync"
-              target="_blank"
-              className="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 font-medium font-gabarito inline-flex items-center gap-2"
-            >
-              <Image
-                src="/github.svg"
-                alt="GitHub"
-                width={20}
-                height={20}
-                className="dark:invert"
-                priority
-              />
-              GitHub
-            </Link>
+            {isLandingPage && (
+              <Link
+                href="https://github.com/shubhamgrg04/runsync"
+                target="_blank"
+                className="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 font-medium font-gabarito inline-flex items-center gap-2"
+              >
+                <Image
+                  src="/github.svg"
+                  alt="GitHub"
+                  width={20}
+                  height={20}
+                  className="dark:invert"
+                  priority
+                />
+                GitHub
+              </Link>
+            )}
             {user ? (
               <Menu as="div" className="relative">
                 <Menu.Button className="flex items-center text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 font-medium font-gabarito">
@@ -166,21 +179,6 @@ export default function Header() {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-200 dark:border-gray-700">
             <div className="flex flex-col space-y-4">
-              <Link
-                href="https://github.com/shubhamgrg04/runsync"
-                target="_blank"
-                className="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 font-medium font-gabarito inline-flex items-center gap-2"
-              >
-                <Image
-                  src="/github.svg"
-                  alt="GitHub"
-                  width={20}
-                  height={20}
-                  className="dark:invert"
-                  priority
-                />
-                GitHub
-              </Link>
               {user ? (
                 <>
                   <Link

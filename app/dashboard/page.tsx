@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import AppLayout from "../components/AppLayout";
 import { api } from "../utils/api";
 import type { Integration } from "../types/integration";
 import { LinkIcon } from "@heroicons/react/24/outline";
@@ -48,7 +47,7 @@ export default function DashboardPage() {
   }, []);
 
   return (
-    <AppLayout>
+    <>
       <div className="max-w-7xl mx-auto">
         <div className="md:flex md:items-center md:justify-between">
           <div className="min-w-0 flex-1">
@@ -111,6 +110,6 @@ export default function DashboardPage() {
           )}
         </div>
       </div>
-    </AppLayout>
+    </>
   );
 }

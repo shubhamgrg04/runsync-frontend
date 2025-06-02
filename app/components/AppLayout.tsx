@@ -88,26 +88,6 @@ export default function AppLayout({ children }: AppLayoutProps) {
               );
             })}
           </nav>
-
-          {/* User Profile */}
-          <div className="p-4 border-t border-gray-200 dark:border-gray-700">
-            <div className="flex items-center">
-              <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium text-gray-900 dark:text-white truncate">
-                  {user?.first_name}
-                </p>
-                <p className="text-sm text-gray-500 dark:text-gray-400 truncate">
-                  {user?.email}
-                </p>
-              </div>
-              <button
-                onClick={handleLogout}
-                className="ml-4 text-sm text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
-              >
-                Logout
-              </button>
-            </div>
-          </div>
         </div>
       </div>
 
