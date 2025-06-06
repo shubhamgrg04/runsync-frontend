@@ -1,9 +1,14 @@
 export interface Integration {
-  id: number;
-  integration_name: string;
+  name: string;
+  connect_url: string;
+  activities_url: string;
   status: string;
-  created: string;
 }
+
+export interface ConnectResponse {
+  redirect_url: string;
+}
+
 
 export interface SidebarItem {
   name: string;

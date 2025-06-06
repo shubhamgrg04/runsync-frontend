@@ -23,9 +23,14 @@ export default function Header() {
   const isLandingPage = pathname === "/";
 
   useEffect(() => {
-    // Initial user data load
+    const tokenData = localStorage.getItem("token_data");
     const userData = localStorage.getItem("user");
-    if (userData) {
+
+    if (
+      tokenData &&
+      new Date(JSON.parse(tokenData).expires_at) > new Date() &&
+      userData
+    ) {
       try {
         setUser(JSON.parse(userData));
       } catch {
@@ -87,7 +92,7 @@ export default function Header() {
                 className="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200 font-medium font-gabarito inline-flex items-center gap-2"
               >
                 <Image
-                  src="/github.svg"
+                  src="/thirdparty/github.svg"
                   alt="GitHub"
                   width={20}
                   height={20}
@@ -117,14 +122,28 @@ export default function Header() {
                       <Menu.Item>
                         {({ active }: MenuItemProps) => (
                           <Link
-                            href="/dashboard/settings"
+                            href="/dashboard/profile"
                             className={`${
                               active
                                 ? "bg-gray-100 dark:bg-slate-700 text-gray-900 dark:text-white"
                                 : "text-gray-700 dark:text-gray-300"
                             } block px-4 py-2 text-sm`}
                           >
-                            Settings
+                            Profile
+                          </Link>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item>
+                        {({ active }: MenuItemProps) => (
+                          <Link
+                            href="/dashboard/sync-settings"
+                            className={`${
+                              active
+                                ? "bg-gray-100 dark:bg-slate-700 text-gray-900 dark:text-white"
+                                : "text-gray-700 dark:text-gray-300"
+                            } block px-4 py-2 text-sm`}
+                          >
+                            Sync Settings
                           </Link>
                         )}
                       </Menu.Item>

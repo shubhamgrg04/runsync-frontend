@@ -35,7 +35,7 @@ export class ApiClient {
 
   private getToken(): string | null {
     if (typeof window === 'undefined') return null;
-    return localStorage.getItem('token');
+    return JSON.parse(localStorage.getItem('token_data') || '{}').token;
   }
 
   isAuthenticated(): boolean {

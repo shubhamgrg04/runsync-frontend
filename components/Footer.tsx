@@ -14,7 +14,12 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
             >
-              <Image src="/github.svg" alt="GitHub" width={20} height={20} />
+              <Image
+                src="/thirdparty/github.svg"
+                alt="GitHub"
+                width={20}
+                height={20}
+              />
             </Link>
             <span className="text-sm text-gray-500 dark:text-gray-400">
               © {new Date().getFullYear()} RunSync

@@ -5,8 +5,9 @@ export interface LoginRequest {
 
 export interface LoginResponse {
   token: string;
+  expires_at: string;
   user: {
-    id: string;
+    id: number;
     email: string;
     first_name: string;
     last_name: string;

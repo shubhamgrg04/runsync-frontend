@@ -20,10 +20,10 @@ interface AppLayoutProps {
 }
 
 const sidebarItems: SidebarItem[] = [
-  { name: "Dashboard", href: "/dashboard", icon: HomeIcon },
-  { name: "Integrations", href: "/dashboard/integrations", icon: LinkIcon },
-  { name: "Analytics", href: "/dashboard/analytics", icon: ChartBarIcon },
-  { name: "Settings", href: "/dashboard/settings", icon: Cog6ToothIcon },
+  { name: "Apps", href: "/dashboard", icon: HomeIcon },
+  { name: "Sync Settings", href: "/dashboard/sync-settings", icon: LinkIcon },
+  { name: "History", href: "/dashboard/history", icon: ChartBarIcon },
+  { name: "Profile", href: "/dashboard/profile", icon: Cog6ToothIcon },
 ];
 
 export default function AppLayout({ children }: AppLayoutProps) {
@@ -33,6 +33,12 @@ export default function AppLayout({ children }: AppLayoutProps) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
+    const tokenData = localStorage.getItem("token_data");
+    if (!tokenData || new Date(JSON.parse(tokenData).expires_at) < new Date()) {
+      router.push("/login");
+      return;
+    }
+
     const userData = localStorage.getItem("user");
     if (!userData) {
       router.push("/login");
@@ -47,7 +53,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
   }, [router]);
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
+    localStorage.removeItem("token_data");
     localStorage.removeItem("user");
     router.push("/login");
   };
