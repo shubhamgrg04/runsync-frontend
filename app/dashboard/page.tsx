@@ -121,7 +121,7 @@ export default function DashboardPage() {
                   <div className="flex flex-col items-center flex-1 justify-center">
                     <div className="flex-shrink-0 mb-3">
                       <Image
-                        src={`/thirdparty/${integration.name}.svg`}
+                        src={`/thirdparty/${integration.type}.svg`}
                         alt={integration.name}
                         width={48}
                         height={48}

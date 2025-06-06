@@ -1,5 +1,6 @@
 export interface Integration {
   name: string;
+  type: string;
   connect_url: string;
   activities_url: string;
   status: string;
